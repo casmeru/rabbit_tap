@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Rabbit Tap — Admin</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body class="admin-body">
+  <div class="admin-app">
+
+    <header class="admin-header">
+      <button class="back-btn" id="backBtn">←</button>
+      <span>⚙️ Админ-панель</span>
+    </header>
+
+    <div id="deniedState" class="admin-denied" hidden>
+      <p>🚫 Доступ только для создателя игры.</p>
+    </div>
+
+    <div id="adminContent" hidden>
+      <section class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-value" id="statPlayers">—</div>
+          <div class="stat-label">игроков</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="statCoins">—</div>
+          <div class="stat-label">монет всего</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="statTaps">—</div>
+          <div class="stat-label">тапов всего</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="statTopLevel">—</div>
+          <div class="stat-label">макс. уровень</div>
+        </div>
+      </section>
+
+      <section class="search-row">
+        <input type="text" id="searchInput" placeholder="Поиск: имя, @username или ID" />
+        <button id="searchBtn">Найти</button>
+      </section>
+
+      <section class="user-list" id="userList">
+        <div class="loading">Загрузка…</div>
+      </section>
+    </div>
+  </div>
+
+  <div class="modal" id="userModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span id="userModalTitle">Игрок</span>
+        <button id="closeUserModal">✕</button>
+      </div>
+      <div class="user-actions">
+        <div class="grant-row">
+          <input type="number" id="grantCoins" placeholder="+ монет" />
+          <input type="number" id="grantEnergy" placeholder="+ энергии" />
+          <button id="grantBtn">Выдать</button>
+        </div>
+        <button class="danger-btn" id="resetBtn">Сбросить прогресс</button>
+        <button class="danger-btn" id="banBtn">Забанить</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Rabbit Tap 🐇</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="profile">
+        <div class="avatar">🐇</div>
+        <div class="profile-text">
+          <div class="name" id="playerName">Игрок</div>
+          <div class="level" id="levelLabel">Уровень 1</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="leaderboard-btn" id="adminBtn" aria-label="Админ-панель" hidden>⚙️</button>
+        <button class="leaderboard-btn" id="leaderboardBtn" aria-label="Таблица лидеров">🏆</button>
+      </div>
+    </header>
+
+    <div class="community-bar" id="communityBar">
+      <span>👥 <b id="communityPlayers">—</b></span>
+      <span>🥕 <b id="communityCoins">—</b></span>
+      <span>👆 <b id="communityTaps">—</b></span>
+    </div>
+
+    <section class="balance">
+      <div class="coin-row">
+        <span class="coin-icon">🥕</span>
+        <span class="coin-amount" id="coinAmount">0</span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="levelProgressFill"></div></div>
+        <div class="progress-label" id="levelProgressLabel">0 / 1000 до след. уровня</div>
+      </div>
+    </section>
+
+    <section class="tap-area">
+      <div class="tap-zone" id="tapZone">
+        <div class="tap-glow"></div>
+        <button class="rabbit-btn" id="rabbitBtn" aria-label="Тапни кролика">
+          <span class="rabbit-emoji">🐇</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="energy-row">
+      <span class="energy-icon">⚡</span>
+      <div class="energy-bar"><div class="energy-fill" id="energyFill"></div></div>
+      <span class="energy-text" id="energyText">1000 / 1000</span>
+    </section>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="modal" id="leaderboardModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span>🏆 Топ морковеводов</span>
+        <button id="closeLeaderboard">✕</button>
+      </div>
+      <ol class="leaderboard-list" id="leaderboardList"></ol>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('adminBtn').addEventListener('click', () => {
+      window.location.href = 'admin.html';
+    });
+  </script>
+</body>
+</html>
